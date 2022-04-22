@@ -36,9 +36,11 @@ public class SavingAccounts {
     }
 
     public double calculateMonthlyInterests(){
-        double monthBenefit = ((savingsBalance * annualInterestRate) /12);
-        savingsBalance += monthBenefit;
-        return monthBenefit;
+        if (savingsBalance > 0) {
+            savingsBalance = ((savingsBalance * annualInterestRate) / 12);
+            return savingsBalance;
+        }
+        return savingsBalance;
     }
 
     public  void modifyRate(double newRate){
