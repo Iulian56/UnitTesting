@@ -3,9 +3,6 @@ package com.testing;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
-
 class SavingAccountsTest {
 
     @Test
@@ -18,12 +15,12 @@ class SavingAccountsTest {
     }
 
     @Test
-    public void calculateMonthlyInterestsTest2(){
+    public void calculateMonthlyInterests(){
         SavingAccounts person2 = new SavingAccounts("B000002", 9000);
-        person2.setAnnualInterestRate(0.07);
+        person2.setAnnualInterestRate(0.10);
         double actual = person2.calculateMonthlyInterests();
 
-        assertNotEquals(9052.5, actual);
+        assertEquals(75.0, actual);
     }
 
     @Test
@@ -34,4 +31,10 @@ class SavingAccountsTest {
         assertEquals(expected, 9200);
     }
 
+    @Test
+    public void getIdentificationCodeTest(){
+        SavingAccounts person4 = new SavingAccounts("B000004", 8400);
+        String expected = person4.getIdentificationCode();
+        assertEquals(expected, "B000004");
+    }
 }
